@@ -10,7 +10,6 @@ useradd -m -d /home/$newuser -s /bin/bash $newuser
 mkdir /home/$newuser/.ssh
 mkdir /home/$newuser/.ssh/authorized_keys
 cp /home/michael/Tech-Journal/SYS265/linux/public-keys/id_rsa.pub /home/$newuser/.ssh/authorized_keys
-sed -z 's/PermitRootLogin yes\|$/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo chmod 700 /home/$newuser/.ssh
 sudo chmod 600 /home/$newuser/.ssh/authorized_keys
 sudo chown -R $newuser:$newuser /home/$newuser/.ssh
