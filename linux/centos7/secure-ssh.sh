@@ -7,9 +7,9 @@
 
 newuser=$1
 useradd -m -d /home/$newuser -s /bin/bash $newuser
-mkdir /home/$newuser/.ssh
-mkdir /home/$newuser/.ssh/authorized_keys
-cp /home/michael/Tech-Journal/SYS265/linux/public-keys/id_rsa.pub /home/$newuser/.ssh/authorized_keys
+sudo mkdir /home/$newuser/.ssh
+sudo mkdir /home/$newuser/.ssh/authorized_keys
+sudo cp /home/Tech_Journal/linux/public-keys/id_rsa.pub /home/$newuser/.ssh/authorized_keys
 sudo chmod 700 /home/$newuser/.ssh
 sudo chmod 600 /home/$newuser/.ssh/authorized_keys
 sudo chown -R $newuser:$newuser /home/$newuser/.ssh
