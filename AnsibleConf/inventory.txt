@@ -1,0 +1,13 @@
+
+ansible1-michael
+[webmin]
+ansible2-michael
+[windows]
+mgmt01-michael
+[windows:vars]
+ansible_user=michael.verdi-adm@michael.local
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_port=5986
+
