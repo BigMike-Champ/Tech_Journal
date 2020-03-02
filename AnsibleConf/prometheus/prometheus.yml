@@ -1,0 +1,11 @@
+- hosts: ansible1-michael
+  become: true
+  vars:
+    firewalld_enable: true
+    install_utils: true
+    prometheus_components: [prometheus, alertmanager, node_exporter]
+   
+  roles:
+   - lrk.prometheus
+  
+    
