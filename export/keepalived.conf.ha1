@@ -1,0 +1,21 @@
+vrrp_instance VI_1 {
+    interface ens160
+    state MASTER
+    virtual_router_id 60
+    priority 200
+    advert_int 2
+
+
+    unicast_src_ip 10.0.6.10
+
+
+    unicast_peer{
+        10.0.6.11
+    }
+    
+
+
+    virtual_ipaddress {
+        10.0.6.12 dev ens160 label ens160:vip
+    }
+}
