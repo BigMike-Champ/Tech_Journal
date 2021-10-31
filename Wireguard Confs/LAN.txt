@@ -1,0 +1,12 @@
+[Interface]
+ListenPort = 51900
+PrivateKey = [LAN Key]
+Address = 10.0.101.2
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o ens160 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o ens160 -j MASQUERADE
+
+[Peer]
+PublicKey = JUEND0LDcHIot1oaXpH2R57b7eN/ccqmalqD07vCpWo=
+AllowedIPs = 10.0.101.1/32
+Endpoint = ec2-107-20-99-50.compute-1.amazonaws.com:51900
+PersistentKeepAlive = 25

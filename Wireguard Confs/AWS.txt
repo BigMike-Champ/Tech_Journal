@@ -1,0 +1,11 @@
+[Interface]
+ListenPort = 51900
+PrivateKey = [AWS Key]
+Address = 10.0.101.1
+
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEP                                                                                                                                                             T; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC                                                                                                                                                             EPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+[Peer]
+PublicKey = SqQuuPvAKqyGRDm5LFiTze5NMNIXXU0ODyOaFEaIMVI=
+AllowedIPs = 10.0.101.2/32, 10.0.6.0/24
+Endpoint = 10.0.5.6:51900
