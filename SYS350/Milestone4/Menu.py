@@ -88,6 +88,9 @@ def opt4():
     Disconnect(si)
 
 def opt5():
+    with open('/home/champuser/Desktop/Tech_Journal/SYS350/Milestone4/config.json', 'r') as jsonfile:
+        data = json.load(jsonfile)
+    print(data)
     passw = getpass.getpass()
     s=ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     s.verify_mode=ssl.CERT_NONE
