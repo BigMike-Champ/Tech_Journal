@@ -97,6 +97,7 @@ def opt5():
     un = data["username"]
     si=SmartConnect(host=vc, user=un, pwd=passw, sslContext=s)
     aboutInfo=si.content.about
+    print(aboutInfo.fullName)
     print("The Vcenter Info! from Milestone 2! ", aboutInfo)
     time.sleep(2)
     print(aboutInfo.osType)
