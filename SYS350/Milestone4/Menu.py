@@ -90,7 +90,6 @@ def opt4():
 def opt5():
     with open('/home/champuser/Desktop/Tech_Journal/SYS350/Milestone4/config.json', 'r') as jsonfile:
         data = json.load(jsonfile)
-    print(data)
     passw = getpass.getpass()
     s=ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     s.verify_mode=ssl.CERT_NONE
@@ -99,6 +98,8 @@ def opt5():
     si=SmartConnect(host=vc, user=un, pwd=passw, sslContext=s)
     aboutInfo=si.content.about
     print("The Vcenter Info! from Milestone 2! ", aboutInfo)
+    time.sleep(2)
+    print(aboutInfo.osType)
     Disconnect(si)
 menu()
 option = int(input("Enter your option: "))
