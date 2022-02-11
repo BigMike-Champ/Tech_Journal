@@ -81,7 +81,7 @@ def opt4():
         print(str(i.name) + "- Name")
         print(i.guest.guestState + "- Powerstate")
         print(i.config.hardware.numCPU, "- CPUS")
-        GB = (i.config.hardware.memoryMB/1000)
+        GB = (i.config.hardware.memoryMB/1024)
         print( GB , "- Memory in GB")
         print(i.summary.guest.ipAddress)
         print("__________________")
