@@ -56,7 +56,7 @@ def opt3():
             print(str(i.name) + "- It is there")
             print(i.guest.guestState + "- Powerstate")
             print(i.config.hardware.numCPU, "- CPUS")
-            GB = (i.config.hardware.memoryMB/1000)
+            GB = (i.config.hardware.memoryMB/1024)
             print( GB , "- Memory in GB")
             print(i.summary.guest.ipAddress , "- IP")
             print("__________________")
