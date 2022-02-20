@@ -206,38 +206,23 @@ def opt11():
     si.RetrieveContent()
     datacenter = si.content.rootFolder.childEntity[0]
     vms = datacenter.vmFolder.childEntity
-    vm_name=input("Enter a VM name to reconfigure: ")
-    Change_choice=input("Which aspect would you lime to change? CPU or Memory. ")
-    if Change_choice == "CPU":
-        for i in vms:
-            if vm_name == i.name:
-                print("You have chosen to reconfigure the CPU's. Powering the VM off.")
-                i.PowerOff()
-                print("Power is off Proceeding to reconfigure.")
-                number = input("Input the number of CPU's you would like to set: ")
-                time.sleep(2)
-                core = input("Enter the number of Cores you would want: ")
-                time.sleep(2)
-                print("Configuring...")
-                spec = vim.vm.ConfigSpec()
-                spec.numCPUs=int(number)
-                spec.numCoresPerSocket=int(core)
-                i.Reconfigure(spec)
-                print("VM CPU update complete")
-                time.sleep(5)
-            elif Change_choice == "Memory":
-                print("You have chosen to reconfigure the Memory. Powering the VM off.")
-                i.PowerOff()
-                quantity=input("Please enter the quantity memory you would like: ")
-                print("Applying configurations: ")
-                time.sleep(2)
-                numquant=int(quantity)
-                gb=numquant*1024
-                spec = vim.vm.Config(spec)
-                spec.memoryMB = gb
-                i.Reconfigure(gb)
-                print("Configuration Complete...")
-                time.sleep(5)
+    vm_name=input("Enter a VM name to reconfigure CPU for: ")
+    for i in vms:
+        if vm_name == i.name:
+            print("You have chosen to reconfigure the CPU's. Powering the VM off.")
+            i.PowerOff()
+            print("Power is off Proceeding to reconfigure.")
+            number = input("Input the number of CPU's you would like to set: ")
+            time.sleep(2)
+            core = input("Enter the number of Cores you would want: ")
+            time.sleep(2)
+            print("Configuring...")
+            spec = vim.vm.ConfigSpec()
+            spec.numCPUs=int(number)
+            spec.numCoresPerSocket=int(core)
+            i.Reconfigure(spec)
+            print("VM CPU update complete")
+            time.sleep(5)
     Disconnect(si)
 
 def opt12():
